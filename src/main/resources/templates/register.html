@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<link rel="stylesheet" href="/styles/login-register.css">
+<title>Registration</title>
+</head>
+<body>
+	<div class="outer">
+		<div class="middle" th:object="${userForm}">
+			<div class="inner rounded">
+				<form action="register" method="post">
+					<div class="gap-bottom">
+						<span><b>User Registration</b></span>
+					</div>
+					<div  class="gap-bottom">
+						<input id="email" type="text" class="form-input account" placeholder="email" value="" name="email"
+							   th:field="*{email}" autofocus>
+					</div>
+					<div class="gap-bottom">
+						<input id="password" type="password" class="form-input password" placeholder="Password" value=""
+							   name="password" th:field="*{password}">
+					</div>
+					<div class="gap-bottom">
+						<input id="confirm" type="password" class="form-input password" placeholder="Confirmation" value=""
+							   name="confirmPassword" th:field="*{confirmPassword}">
+					</div>
+					<input type="submit" class="form-btn" value="Register">
+				</form>
+			</div>
+			<div th:if="${#fields.hasErrors('*')}" class="alert rounded">
+				<ul>
+					<li th:each="err : ${#fields.errors('*')}" th:text="${err}">
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

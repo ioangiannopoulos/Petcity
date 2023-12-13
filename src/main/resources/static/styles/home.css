@@ -1,0 +1,45 @@
+body {
+    background-color: lightblue;
+}
+
+.navbar {
+    background-color: #4831D4;
+}
+
+.navbar-brand {
+    color: #FEE715;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #FFF;
+}
+
+.nav-link:hover {
+    background-color: #CCF381;
+}
+
+.project-name {
+    text-align: center;
+    color: #101820;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 30px;
+    text-shadow: 2px 2px #FEE715;
+}
+
+.pet-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.pet-images img {
+    width: 650px;
+    height: auto;
+    margin: 50px;
+    border-radius: 0;
+}

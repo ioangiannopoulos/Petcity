@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Pet Owner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/insert-update-petowner.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">PETCITY</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/owners/insert'}">NEW OWNER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/owners/list'}">OWNERS-LIST</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="card rounded-lg">
+        <div class="card-header bg-lightblue">
+            <h2 class="text-center">Update Owner's Details</h2>
+        </div>
+        <div class="card-body">
+            <form action="#" th:action="@{/owners/update/{ownerId}(ownerId=${petOwnerToUpdate.id})}" th:object="${petOwnerToUpdate}" method="post">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control rounded" id="firstname" th:field="*{firstname}" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control rounded" id="lastname" th:field="*{lastname}" required>
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control rounded" id="phoneNumber" th:field="*{phoneNumber}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control rounded" id="email" th:field="*{email}" required>
+                </div>
+                <button type="submit" class="btn btn-success rounded">Update Pet Owner</button>
+                <div th:if="${#fields.hasErrors('*')}" class="alert rounded">
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

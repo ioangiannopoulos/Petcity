@@ -1,0 +1,42 @@
+body {
+    background-color: lightblue;
+}
+
+.navbar {
+    background-color: #4831D4;
+}
+
+.navbar-brand {
+    color: #FEE715;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #FFF;
+}
+
+.nav-link:hover {
+    background-color: #CCF381;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.error-message {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}

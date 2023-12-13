@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Pet Owner Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/owner-details.css">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">PETCITY</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/owners/insert'}">NEW OWNER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/owners/list'}">OWNERS-LIST</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5">
+            <div class="owner-card">
+                <h1 class="text-center">Pet Owner Details</h1>
+                <div th:if="${petOwner != null}">
+                    <p><strong>Owner ID:</strong> <span th:text="${petOwner.id}"></span></p>
+                    <p><strong>First Name:</strong> <span th:text="${petOwner.firstname}"></span></p>
+                    <p><strong>Last Name:</strong> <span th:text="${petOwner.lastname}"></span></p>
+                    <p><strong>Email:</strong> <span th:text="${petOwner.email}"></span></p>
+                    <p><strong>Phone Number:</strong> <span th:text="${petOwner.phoneNumber}"></span></p>
+                </div>
+                <div th:if="${petOwner == null}">
+                    <p class="text-center">Owner not found.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

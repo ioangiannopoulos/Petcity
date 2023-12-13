@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Owners List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/owners-list.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">PETCITY</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/owners/insert'}">NEW OWNER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{'/owners/list'}">OWNERS-LIST</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">LOGOUT</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Pet Owners List</h2>
+            <div th:if="${#lists.isEmpty(petOwners)}">
+                <p class="text-center">The list is empty!</p>
+            </div>
+            <div th:each="owner : ${petOwners}" class="owner-card">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${owner.firstname + ' ' + owner.lastname}"></h5>
+                        <p class="card-text" th:text="'Email: ' + ${owner.email}"></p>
+                        <p class="card-text" th:text="'Phone: ' + ${owner.phoneNumber}"></p>
+                        <a th:href="@{'/owners/update/' + ${owner.id}}" class="btn btn-primary rounded-pill" style="background-color: cornflowerblue;">UPDATE</a>
+                        <a th:href="@{'/owners/delete/' + ${owner.id}}" class="btn btn-danger rounded-pill ms-2">DELETE</a>
+                        <a th:href="@{'/owners/' + ${owner.id}}" class="btn btn-info rounded-pill ms-2">INFO</a>
+                        <a th:href="@{'/owners/' + ${owner.id} + '/dogs/create'}" class="btn btn-warning rounded-pill">CREATE DOG</a>
+                        <a th:href="@{'/owners/' + ${owner.id} + '/dogs'}" class="btn btn-success rounded-pill">DOG LIST</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

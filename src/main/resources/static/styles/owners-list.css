@@ -1,0 +1,26 @@
+body {
+    background-color: lightblue;
+}
+
+.navbar {
+    background-color: #4831D4;
+}
+
+.navbar-brand {
+    color: #FEE715;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #FFF;
+}
+
+.nav-link:hover {
+    background-color: #CCF381;
+}
+
+.owner-card {
+    width: 50%;
+    margin: 50px auto 0;
+}

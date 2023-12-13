@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+}
+
+.navbar {
+    background-color: #4831D4;
+}
+
+.navbar-brand {
+    color: #FEE715;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #FFF;
+}
+
+.nav-link:hover {
+    background-color: #CCF381;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
